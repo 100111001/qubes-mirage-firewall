@@ -17,7 +17,7 @@
 
 {% set Release = salt['cmd.shell']("qvm-run --dispvm " ~ DispVM ~ " --pass-io \"curl --silent --location -o /dev/null -w %{url_effective} " ~ GithubUrl ~ "/releases/latest | rev | cut -d \"/\" -f 1 | rev\"") %}
 
-{% if Release != salt['cmd.shell']("[ ! -f " ~ MirageInstallDir ~ "/version.txt" ~ " ] && mkdir -p " ~ MirageInstallDir ~ " && mkdir " ~ MirageInstallDir ~ " && touch " ~ MirageInstallDir ~ "/version.txt" ~ ";cat " ~ MirageInstallDir ~ "/version.txt") %}
+{% if Release != salt['cmd.shell']("[ ! -f " ~ MirageInstallDir ~ "/version.txt" ~ " ] && mkdir -p " ~ MirageInstallDir ~ " && mkdir " ~ MirageInstallDir ~ " && touch " ~ MirageInstallDir ~ "/version.txt" ~ " ; cat " ~ MirageInstallDir ~ "/version.txt") %}
 
 create-downloader-VM:
   qvm.vm:
